@@ -1,21 +1,21 @@
 import java.util.*
 
-fun typePriority(c: Char) =
-    if (c in 'a'..'z') {
-        c - 'a' + 1
-    } else {
-        c - 'A' + 27
-    }
-
-fun getBitSet(rucksack: String): BitSet {
-    val res = BitSet(53)
-    for (c in rucksack) {
-        res.set(typePriority(c), true)
-    }
-    return res
-}
-
 fun main() {
+    fun typePriority(c: Char) =
+        if (c in 'a'..'z') {
+            c - 'a' + 1
+        } else {
+            c - 'A' + 27
+        }
+
+    fun getBitSet(rucksack: String): BitSet {
+        val res = BitSet(53)
+        for (c in rucksack) {
+            res.set(typePriority(c), true)
+        }
+        return res
+    }
+
     fun part1(): Int {
         val input = readInput("Day03")
         return input.sumOf {
