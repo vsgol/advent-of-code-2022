@@ -21,3 +21,8 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  */
 @Suppress("unused")
 fun Any?.println() = println(this)
+
+operator fun <T> List<List<T>>.get(pos: Pair<Int, Int>) = this[pos.first][pos.second]
+operator fun <T> List<MutableList<T>>.set(pos: Pair<Int, Int>, value: T) {
+    this[pos.first][pos.second] = value
+}
